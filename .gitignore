@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.suo
+/GitHubApp/GitHubApp/bin
+/GitHubApp/GitHubApp/obj
+/GitHubApp/GitHubApp.Android/bin
+/GitHubApp/GitHubApp.Android/obj
+*.user
+/GitHubApp/GitHubApp.iOS/bin
+/GitHubApp/GitHubApp.iOS/obj
+/packages

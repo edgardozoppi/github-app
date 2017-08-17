@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GitHubApp.View"
+             x:Class="GitHubApp.View.MainPage">
+
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               FontSize="Large"
+               Text="GitHub" />
+
+        <Entry Grid.Row="1"
+               Grid.Column="0"
+               Placeholder="Search..."
+               Keyboard="Text"
+               Text="{Binding SearchQuery}" />
+
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                Text="Ok"
+                Command="{Binding SearchCommand}" />
+
+        <ListView Grid.Row="2"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  HasUnevenRows="true"
+                  SeparatorColor="Black"
+                  ItemsSource="{Binding Repositories}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <local:CustomCell Command="{Binding SelectCommand}">
+                        <StackLayout Margin="5,0,5,5"
+                                     BackgroundColor="Transparent"
+                                     Orientation="Vertical">
+                            <Label Text="{Binding Name}"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold" />
+                            <Label Text="{Binding Description}"
+                                   FontSize="Small"
+                                   LineBreakMode="WordWrap" />
+                            <Label Text="{Binding OwnerUserName}"
+                                   HorizontalTextAlignment="End"
+                                   FontSize="Small"
+                                   FontAttributes="Italic" />
+                        </StackLayout>
+                    </local:CustomCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</ContentPage>
